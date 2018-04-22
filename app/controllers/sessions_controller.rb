@@ -14,5 +14,5 @@ class SessionsController < ApplicationController
       render "sessions/new"
     end
   end
-end 
+end
 end
