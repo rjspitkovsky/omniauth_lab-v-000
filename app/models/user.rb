@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
     self.where(:uid => auth_hash[:info][:uid]).first_or_create do |user|
       user.name = auth_hash[:info][:name]
       user.email = auth_hash[:info][:email]
-      user.image = auth[:info][:image]
+      user.image = auth_hash[:info][:image]
     end
   end
 end
