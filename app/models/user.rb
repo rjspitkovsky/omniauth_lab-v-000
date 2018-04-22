@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
     self.where(:email => auth_hash[:info][:email]).first_or_create do |user|
       user.password = SecureRandom.hex
     end
-  end 
+  end
 end
