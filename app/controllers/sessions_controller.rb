@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
 
   def create
-  if  auth_hash = request.env['omniauth.auth']
+  if  auth_hash = request.env['omniauth.auth']['info']
     user = User.find_or_create_by_omniauth(auth_hash)
-    session[:user_id] = user.id 
+    session[:user_id] = user.id
 
   else
     user = User.find_by(:email => params[:email])
