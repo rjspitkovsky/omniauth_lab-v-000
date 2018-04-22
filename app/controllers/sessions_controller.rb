@@ -7,8 +7,8 @@ class SessionsController < ApplicationController
     redirect_to root_path
 
   else
-    user = User.find_by(:email => params[:user][:email])
-    if user && user.authenticate(params[:user][:password])
+    user = User.find_by(:email => params[:auth][:email])
+    if user && user.authenticate(params[:auth][:password])
       session[:user_id] = user.id
       redirect_to root_path
     else
